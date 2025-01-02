@@ -153,7 +153,21 @@ return {
     --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
     local servers = {
       -- clangd = {},
-      -- gopls = {},
+      gopls = {
+        gofumpt = true,
+        staticcheck = true,
+        analyses = {
+            unusedparams = true,
+            unusedwrite = true,
+        },
+        completeUnimported = true,
+        usePlaceholders = true,
+        -- Add these settings:
+        imports = {
+            autoimport = true,  -- Auto import packages
+            gofumports = true   -- Use gofumports for formatting
+        }
+    }
       -- pyright = {},
       -- rust_analyzer = {},
       -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
